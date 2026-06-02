@@ -1,0 +1,10 @@
+package com.prolaris.springboot.userservice.exceptions.dto;
+
+import java.time.LocalDateTime;
+import java.util.Map;
+
+public record ErrorResponse(int status, String message, Map<String, String> errors, LocalDateTime timestamp) {
+    public ErrorResponse(int status, String message, Map<String, String> errors) {
+        this(status, message, errors, LocalDateTime.now());
+    }
+}

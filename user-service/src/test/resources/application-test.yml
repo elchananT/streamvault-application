@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  flyway:
+    enable: false
+
+spring.grpc:
+  server:
+    post: 0
+
+app:
+  jwt:
+    secret: Gdcp7whmwcaVx3veACE4GFseYz99mOk1jWVJVdXF2ahE4oqcLB3wtsyO2jt3sHRo3qpPen76kyqtJ5ks1LRl31HWVOZmsZZ/iYvOY9uVKEc4yGlaRawDKKnkJ0cwHbBx6dyPt+K8lBzyvtqajz8w5lF8eq7IFYK4hL9aGmGQEQMs4oJEP6XPckCxahl9H3/HPg91Jt9YPK10kwjNFrWm5S6QbnQJTZeWmICFMxMx8f2EFB+oB9J59h8pkNGZxKTGOKWaUocsO4/EQskZADigroBxRBGZ+Np6MiVFBxCRpChy7wFfneNciD9nGHruPjw+Z1ELSDIGCwk6qoK9DknLUg==
+    expiration-ms: 86400000
