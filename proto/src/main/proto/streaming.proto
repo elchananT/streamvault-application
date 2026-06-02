@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package streamvault.streaming;
+
+option java_package = "com.streamvault.proto.streaming";
+option java_outer_classname = "StreamingProto";
+option java_multiple_files = true;
+
+service StreamingGrpcService {
+  rpc GetStreamUrl (GetStreamUrlRequest) returns (StreamUrlResponse);
+  rpc GetUploadUrl (GetUploadUrlRequest) returns (GetUploadUrlResponse);
+}
+
+message GetStreamUrlRequest {
+  string content_id = 1;
+  string user_id = 2;
+}
+
+message StreamUrlResponse {
+  string presigned_url = 1;
+  string content_id = 2;
+  int64 expires_at = 3;
+}
+
+message GetUploadUrlRequest {
+  string content_id = 1;
+  string filename = 2;
+  string content_type = 3;
+}
+
+message GetUploadUrlResponse {
+  string presigned_url = 1;
+  string s3_key = 2;
+}

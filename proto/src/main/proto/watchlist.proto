@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package streamvault.watchlist;
+
+option java_package = "com.streamvault.proto.watchlist";
+option java_outer_classname = "WatchlistProto";
+option java_multiple_files = true;
+
+service WatchlistGrpcService {
+  rpc GetWatchlist (GetWatchlistRequest) returns (WatchlistResponse);
+  rpc AddToWatchlist (WatchlistItemRequest) returns (WatchlistActionResponse);
+  rpc RemoveFromWatchlist (WatchlistItemRequest) returns (WatchlistActionResponse);
+}
+
+message GetWatchlistRequest {
+  string user_id = 1;
+}
+
+message WatchlistItem {
+  string content_id = 1;
+  string title = 2;
+  string thumbnail_url = 3;
+  int64 added_at = 4;
+}
+
+message WatchlistResponse {
+  repeated WatchlistItem items = 1;
+  string user_id = 2;
+}
+
+message WatchlistItemRequest {
+  string user_id = 1;
+  string content_id = 2;
+}
+
+message WatchlistActionResponse {
+  bool success = 1;
+  string message = 2;
+}
