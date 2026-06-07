@@ -1,0 +1,25 @@
+spring:
+  graphql:
+    graphiql:
+      enabled: false
+
+app:
+  jwt:
+    secret: a6KAwVJMYQoDAEPtCrpxn/Zluxo70WXUVlXv4QE0X1AAqcvaZMylJdSzLjRaVCBy0KOIs+Cl8LTtnipqB/cnUnGGXCvm283SeSkyULd8SCpZ8FxPiuggF/qwEp49HaQKPvxMk7X5sTV/5gSRHyl5JgCeMcvyuuyrCvJgRlula+jV4xSxKsb7JhHEs0qVwTGX9xn0hUerNejm0Ijb7IrRndRQbIq7dAsGM1SoEXrkTY/47tvB9iB5IWnwpz7th7EHFbCZa0de1GiC6xjYb8obL+oKEKR2pOsb9+iHS9Xkged54WxrvJ/4WYsTU5qptWeiojyggc9aTJ+UMjL8kZ+rmw==
+    expiration-ms: 86400000
+
+spring.grpc:
+  client:
+    channels:
+      user-service:
+        address: static://localhost:9091
+        negotiation-type: PLAINTEXT
+      content-service:
+        address: static://localhost:9092
+        negotiation-type: PLAINTEXT
+      streaming-service:
+        address: static://localhost:9093
+        negotiation-type: PLAINTEXT
+      watchlist-service:
+        address: static://localhost:9094
+        negotiation-type: PLAINTEXT

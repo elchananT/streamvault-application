@@ -1,0 +1,63 @@
+type Query {
+    content(id: ID!): Content
+    listContent(page: Int, size: Int, genre: String): [Content!]!
+    searchContent(query: String!): [Content!]!
+
+    streamUrl(ContentId: ID!): StreamUrl
+
+    myWatchlist: [WatchlistItem!]!
+
+    me: User
+}
+
+type Mutation {
+    register(username: String!, email: String!, password: String!): AuthPayload!
+    login(email: String!, password: String!): AuthPayload!
+
+    addToWatchlist(contentId: ID!): WatchlistResult!
+    removeFromWatchlist(contentId: ID!): WatchlistResult!
+}
+
+
+
+
+
+type AuthPayload {
+    token: String!
+    username: String!
+    email: String!
+}
+
+type User {
+    id: ID!
+    username: String!
+    email: String!
+}
+
+type Content {
+    id: ID!
+    title: String!
+    description: String!
+    genre:  String!
+    type: String!
+    rating: Float
+    releaseYear: Int
+    thumbnailUrl: String
+}
+
+type StreamUrl {
+    url: String!
+    contentId: String!
+    expiresAt: String!
+}
+
+type WatchlistItem {
+    contentId: String!
+    title: String!
+    addedAt: String!
+}
+
+type WatchlistResult {
+    success: Boolean!
+    message: String!
+}
